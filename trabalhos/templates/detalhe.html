@@ -1,0 +1,37 @@
+<!doctype html>
+
+<html>
+
+    {% load static %}
+<head>
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link href="{% static 'materialize/css/materialize.css' %}" rel="stylesheet">
+    <title>{{ projeto.nome}}</title>
+</head>
+
+<body>
+    <div class="container">
+        
+        <div class="center">
+            <title>{{ projeto.nome}}</title>
+            <img src="{{projeto.imagem.url}}" height="300"/>
+            <p class="flow-text">{{ projeto.descricao}}</p>
+
+            <div class="col s4">
+                <ul class="collection with-header">
+                    <li class="collection-header">Outros Detalhes</li>
+                    <li class="collection-item">Tecnologias Utilizadas</li>
+                    <li class="collection-item">Github</li>
+                    <li class="collection-item">Doumentação</li>
+                </ul>
+            </div>
+        </div>  
+
+    </div>
+</body>
+
+<script src="{% static 'app.js' %}"></script>
+<script src="{% static 'materialize/js/materialize.js' %}"></script>
+
+
+</html>

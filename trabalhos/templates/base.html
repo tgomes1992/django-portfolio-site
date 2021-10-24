@@ -1,0 +1,62 @@
+<!doctype html>
+
+<html>
+
+{% load static %}
+<head>
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link href="{% static 'materialize/css/materialize.css' %}" rel="stylesheet">
+    <title>Base Template</title>
+</head>
+
+
+<body>
+    <div class="container">
+        <secction>
+            <h1 class='row'>Thiago Gomes</h1>
+            <p class='row flow-text'>Bem Vindos ao meu Portfolio de Projetos abaixo , 
+                                    visualize os projetos e sua respectiva utilidade são projetos simples com finalidade de 
+                                    estudo e aprendizado da programação , nas mais diversas linguagens                                    Espero que gostem , qualquer dúvida
+                                    comentário ou sugestão entre em contato pelo e-mail abaixo
+                                    <a>thiago.cgomes@outlook.com</a> <br>
+                                    Tecnologias Utilizadas no meu Portfolio:
+                                    <ul class="flow-text">
+                                        <li>Python (Flask e Django)</li>
+                                        <li>Javascript (NODEJS) </li>
+                                        <li>PHP (LARAVEL)</li>
+                                    </ul>
+
+            </p>
+        </section>
+      
+        
+            <div class="row">
+                 
+                    {% for projeto in projetos.all %}
+                          
+                        <div class="card col s2 m6">
+                            <div class="card-image">
+                                  <img src="{{projeto.imagem.url}}"  class="responsive-img"/>
+                            </div>
+                            <span class="card-title">{{projeto.nome}}</span>
+                            <div class="card-content">
+                                <p>{{projeto.descricao}}</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="{% url 'detalhes' projeto.id %}">detalhes</a>
+                            </div>
+                        </div>
+                    
+                    {% endfor %}                     
+           
+              </div>   
+                      
+
+     </div>
+
+</body>
+
+<script src="{% static 'app.js' %}"></script>
+<script src="{% static 'materialize/js/materialize.js' %}"></script>
+
+</html>
